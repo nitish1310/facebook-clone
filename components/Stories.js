@@ -1,6 +1,12 @@
 import StoryCard from "./StoryCard";
 
 const stories = [
+  // {
+  //   name: "Dwayne Johnson",
+  //   src: "https://www.pngfind.com/pngs/m/79-795497_dwayne-johnson-png-transparent-image-dwayne-johnson-transparent.png",
+  //   profile:
+  //     "https://www.pngfind.com/pngs/m/79-795497_dwayne-johnson-png-transparent-image-dwayne-johnson-transparent.png",
+  // },
   {
     name: "Sonny Sangra",
     src: "https://links.papareact.com/zof",
