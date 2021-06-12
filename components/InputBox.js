@@ -5,12 +5,41 @@ import {
   CameraIcon,
   EmojiHappyIcon,
 } from "@heroicons/react/solid";
+import { useRef, useState } from "react";
+import { db } from "../firebase";
+import firebase from "firebase";
 
 function InputBox() {
   const [session] = useSession();
+  const inputRef = useRef(null);
+  const filePickerRef = useRef(null);
+  const [imageToPost, setImageToPost] = useState(null);
 
   const sendPost = (e) => {
     e.preventDefault();
+
+    if (!inputRef.current.value) return;
+
+    db.collection("post").add({
+      message: inputRef.current.value,
+      name: session.user.name,
+      email: session.user.email,
+      image: session.user.image,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+
+    inputRef.current.value = "";
+  };
+
+  const addImagePost = (e) => {
+    const reader = new FileReader();
+    if (e.target.files[0]) {
+      reader.readAsDataURL(e.target.files[0]);
+    }
+
+    reader.onload = (readerEvent) => {
+      setImageToPost(readerEvent.target.result);
+    };
   };
 
   return (
@@ -27,6 +56,7 @@ function InputBox() {
           <input
             className="rounded-full h-12 bg-gray-100 flex-grow px-5 focus:outline-none"
             type="text"
+            ref={inputRef}
             placeholder={`What's on your mind ${session.user.name}?`}
           />
           <button type="submit" hidden onClick={sendPost}>
@@ -40,9 +70,18 @@ function InputBox() {
           <VideoCameraIcon className="h-7 text-red-500" />
           <p className="text-xs sm:text-sm xl:text-base">Live Video</p>
         </div>
-        <div className="inputIcon">
+        <div
+          onClick={() => filePickerRef.current.click()}
+          className="inputIcon"
+        >
           <CameraIcon className="h-7 text-green-400" />
           <p className="text-xs sm:text-sm xl:text-base">Photo/Video</p>
+          <input
+            ref={filePickerRef}
+            onChange={addImagePost}
+            type="file"
+            hidden
+          />
         </div>
         <div className="inputIcon">
           <EmojiHappyIcon className="h-7 text-yellow-300" />
