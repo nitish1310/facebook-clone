@@ -60,7 +60,7 @@ function InputBox() {
             placeholder={`What's on your mind ${session.user.name}?`}
           />
           <button type="submit" hidden onClick={sendPost}>
-            Submit
+            Submit the Feed
           </button>
         </form>
       </div>
