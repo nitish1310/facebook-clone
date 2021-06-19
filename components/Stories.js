@@ -7,11 +7,7 @@ const stories = [
   //   profile:
   //     "https://www.pngfind.com/pngs/m/79-795497_dwayne-johnson-png-transparent-image-dwayne-johnson-transparent.png",
   // },
-  {
-    name: "Sonny Sangra",
-    src: "https://links.papareact.com/zof",
-    profile: "https://links.papareact.com/14v",
-  },
+
   {
     name: "Elon Musk",
     src: "https://links.papareact.com/4zn",
@@ -20,7 +16,12 @@ const stories = [
   {
     name: "Jeff Bezoz",
     src: "https://links.papareact.com/k2j",
-    profile: "https://links.papareact.com/fep",
+    profile: "https://links.papareact.com/f0p",
+  },
+  {
+    name: "James Bond",
+    src: "https://links.papareact.com/4u4",
+    profile: "https://links.papareact.com/r57",
   },
   {
     name: "Mark Zuckerberg",
