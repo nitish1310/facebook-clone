@@ -1,15 +1,19 @@
 {
   "name": "facebook-clone",
   "version": "0.1.0",
+  "main": "function.js",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "deploy": "firebase deploy --only functions,hosting"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.1",
+    "cross-env": "^7.0.3",
     "firebase": "^8.6.7",
+    "firebase-admin": "^9.9.0",
+    "firebase-functions": "^3.14.1",
     "next": "10.2.3",
     "next-auth": "^3.24.0",
     "react": "17.0.2",
